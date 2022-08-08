@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IFm-vE-Fc0">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="OGA-3O-ETF">
+            <objects>
+                <viewController id="IFm-vE-Fc0" customClass="ViewController" customModule="FastDrawUI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CeQ-58-KYA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Rp-23-hSw">
+                                <rect key="frame" x="149.5" y="437.5" width="115" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Launch Modal"/>
+                                <connections>
+                                    <action selector="launchModal:" destination="IFm-vE-Fc0" eventType="touchUpInside" id="HWf-aI-du1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bSV-hf-V0O"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5Rp-23-hSw" firstAttribute="centerX" secondItem="bSV-hf-V0O" secondAttribute="centerX" id="7Xf-As-eUA"/>
+                            <constraint firstItem="5Rp-23-hSw" firstAttribute="centerY" secondItem="bSV-hf-V0O" secondAttribute="centerY" id="p5a-dr-SAa"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ux3-ZX-VZf" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-762" y="104"/>
+        </scene>
+        <!--Create Play View Controller-->
+        <scene sceneID="Rzo-HI-X5T">
+            <objects>
+                <viewController storyboardIdentifier="CreatePlayViewController" id="EM0-sz-NYX" customClass="CreatePlayViewController" customModule="FastDrawUI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7W3-5d-itA">
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qec-Vx-7mm">
+                                <rect key="frame" x="150" y="195" width="240" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQU-mh-8Sc">
+                                <rect key="frame" x="150" y="195" width="240" height="240"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Qnv-ui-q0c"/>
+                                    <constraint firstAttribute="width" secondItem="aQU-mh-8Sc" secondAttribute="height" multiplier="1:1" id="t9G-6g-b1D"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="JmO-2Y-G3m" appends="YES" id="dVx-up-Qm8"/>
+                                    <outletCollection property="gestureRecognizers" destination="QUI-Ac-B1J" appends="YES" id="slm-LK-dvD"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RYK-sc-wrS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aQU-mh-8Sc" firstAttribute="centerX" secondItem="RYK-sc-wrS" secondAttribute="centerX" id="QUV-eD-LkB"/>
+                            <constraint firstItem="aQU-mh-8Sc" firstAttribute="centerY" secondItem="RYK-sc-wrS" secondAttribute="centerY" id="zyc-DL-lpz"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="540" height="620"/>
+                    <connections>
+                        <outlet property="referenceView" destination="Qec-Vx-7mm" id="Cjp-wM-80t"/>
+                        <outlet property="rotatingView" destination="aQU-mh-8Sc" id="Bd2-tw-Ury"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sM6-gw-L1d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <rotationGestureRecognizer id="JmO-2Y-G3m">
+                    <connections>
+                        <action selector="didRotate:" destination="EM0-sz-NYX" id="zXa-gy-oxB"/>
+                        <outlet property="delegate" destination="EM0-sz-NYX" id="dOp-8o-Q0f"/>
+                    </connections>
+                </rotationGestureRecognizer>
+                <panGestureRecognizer delaysTouchesBegan="YES" minimumNumberOfTouches="1" id="QUI-Ac-B1J">
+                    <connections>
+                        <action selector="didPan:" destination="EM0-sz-NYX" id="7gI-bW-XMc"/>
+                        <outlet property="delegate" destination="EM0-sz-NYX" id="aLN-g3-d4Z"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-36.231884057971016" y="63.616071428571423"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
